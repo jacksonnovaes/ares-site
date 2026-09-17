@@ -4,6 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://aresapp.tech/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="ARES | Gestão para Prestadores de Serviços">
+    <meta property="og:description" content="Organize clientes, orçamentos, serviços e pagamentos em um único lugar.">
+    <meta property="og:url" content="https://aresapp.tech/">
+    <meta property="og:image" content="https://aresapp.tech/img/hero.png">
 
     <title>Planos | ARES</title>
 
@@ -18,14 +28,15 @@
                 <img class="brand-logo logo-light" src="/img/aresLogo.png">
                 <img class="brand-logo logo-dark" src="/img/aresLogo2.png">
             </div>
-        
+
 
             <nav class="nav">
                 <a href="#beneficios">Benefícios</a>
                 <a href="#planos">Planos</a>
                 <a href="#faq">Dúvidas</a>
                 <a href="https://app.aresapp.tech/" class="btn-login">Entrar</a>
-                <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ativar modo escuro" title="Alternar tema">🌙</button>
+                <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ativar modo escuro"
+                    title="Alternar tema">🌙</button>
             </nav>
         </div>
     </header>
@@ -72,7 +83,7 @@
                         <p>
                             Gestão inteligente para prestadores de serviços.
                         </p>
-                    <img src="/img/hero.png" alt="Imagem ilustrativa do ARES">
+                        <img src="/img/hero.png" alt="Imagem ilustrativa do ARES">
                     </div>
                 </div>
 
@@ -410,7 +421,7 @@
 
             <div class="footer-brand">
                 <img src="/img/aresLogo2.png" alt="Logo do ARES">
-                
+
                 <p>
                     Gestão inteligente para prestadores de serviços.
                 </p>
@@ -429,7 +440,7 @@
             {
                 name: 'Essencial',
                 slug: 'Solo',
-                price: '29,90',
+                price: '19,90',
                 users: 1,
                 description: 'Para profissionais autônomos e pequenos negócios.',
                 highlight: false
@@ -437,7 +448,7 @@
             {
                 name: 'Profissional',
                 slug: 'pro',
-                price: '69,90',
+                price: '59,90',
                 users: 5,
                 description: 'Para negócios com uma pequena equipe.',
                 highlight: true
@@ -471,74 +482,74 @@
 
             const features = commonFeatures
                 .map(feature => `
-            <li>
-                <span class="check">✓</span>
-                ${feature}
-            </li>
-        `)
+                <li>
+                    <span class="check">✓</span>
+                    ${feature}
+                </li>
+            `)
                 .join('');
 
             return `
-        <article class="pricing-card ${plan.highlight ? 'highlight' : ''}">
+            <article class="pricing-card ${plan.highlight ? 'highlight' : ''}">
 
-            ${plan.highlight ? `
-                <div class="recommended">
-                    Mais escolhido
+                ${plan.highlight ? `
+                    <div class="recommended">
+                        Mais escolhido
+                    </div>
+                ` : ''}
+
+                <div class="plan-header">
+
+                    <h3>
+                        ${plan.name}
+                    </h3>
+
+                    <p>
+                        ${plan.description}
+                    </p>
+
                 </div>
-            ` : ''}
 
-            <div class="plan-header">
+                <div class="price">
 
-                <h3>
-                    ${plan.name}
-                </h3>
+                    <span class="currency">
+                        R$
+                    </span>
 
-                <p>
-                    ${plan.description}
-                </p>
+                    <strong>
+                        ${plan.price}
+                    </strong>
 
-            </div>
+                    <span class="period">
+                        /mês
+                    </span>
 
-            <div class="price">
+                </div>
 
-                <span class="currency">
-                    R$
-                </span>
-
-                <strong>
-                    ${plan.price}
-                </strong>
-
-                <span class="period">
-                    /mês
-                </span>
-
-            </div>
-
-            <div class="plan-users">
-                <strong>
-                    ${plan.users === 1
+                <div class="plan-users">
+                    <strong>
+                        ${plan.users === 1
                     ? '1 usuário incluído'
                     : `Até ${plan.users} usuários incluídos`
                 }
-                </strong>
-            </div>
+                    </strong>
+                </div>
 
-            <a
-                href="https://app.aresapp.tech/cadastro?plan=${plan.slug}"
-                class="${plan.highlight
+                <a
+                    href="https://app.aresapp.tech/cadastro?plan=${plan.slug}"
+                    class="${plan.highlight
                     ? 'btn-primary btn-full'
                     : 'btn-outline btn-full'}"
-            >
-                Testar grátis
-            </a>
+                >
+                    Testar grátis
+                </a>
 
-            <ul class="features">
-                ${features}
-            </ul>
+                <ul class="features">
+                    ${features}
+                </ul>
 
-        </article>
-    `;
+            </article>
+        `;
 
         }).join('');
         // Atualiza o ano do rodapé sem depender de EJS.
